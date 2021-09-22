@@ -1,0 +1,61 @@
+<div class="container-fluid" style="text-align: center;background-color: black;
+ width: 100%; height: 100%;">
+  <h1 style="font-weight: bolder; color: darkred; font-family: Cambria, Cochin, Georgia, Times, 
+  'Times New Roman', serif; font-size: 70px; padding-top: 10px;">Netflix</h1>
+
+<!-- <p>Not Registerd Yet! </p> -->
+<button class="btn btn-outline-primary" style="position: absolute; top: 0; right: 0; margin-top: 8px;
+ margin-right: 15px;" 
+(click) = "onReg()" > Register </button>
+
+<div class="row">
+    <div *ngIf = "!regForm" class="col-md-5">
+        <form [formGroup] = "newUser">
+            <label for="email" > E-mail </label>
+            <input class="form-control"  type="email" id="email"
+            [class.is-invalid] = "newUser.get('email').invalid && newUser.get('email').touched"
+             formControlName = "email" required >
+             <div *ngIf="(newUser.get('email').invalid && newUser.get('email').touched) || newUser.get('email').dirty">
+              <small class="text-danger" *ngIf="newUser.get('email').errors?.required">Email address is required</small>
+              <small class="text-danger" *ngIf="newUser.get('email').errors?.email">Email address is invalid</small>
+            </div>
+
+            <label for="password"> Pass-Word </label>
+            <input class="form-control" type="password" id="password" formControlName = "password" required>
+
+            <button class= "btn btn-outline-danger" (click) = "onLogin()" style="margin-top: 10px;"> Login </button>  
+            
+        </form>
+      
+      
+    </div>
+    <form [formGroup] = "newUser" >
+      <div class="row">
+    <div *ngIf = "regForm" class="col-md-7">
+        <label for="email"> E-mail </label>
+            <input class="form-control" type="email" id="email" 
+            [class.is-invalid] = "newUser.get('email').invalid && newUser.get('email').touched"
+              formControlName = "email" required> 
+              <div *ngIf="(newUser.get('email').invalid && newUser.get('email').touched) || newUser.get('email').dirty">
+                <small class="text-danger" *ngIf="newUser.get('email').errors?.required">Email address is required</small>
+                <small class="text-danger" *ngIf="newUser.get('email').errors?.email">Email address is invalid</small>
+              </div>
+            
+               <br>
+
+            <!-- <label for="name"> Name </label>
+            <input type="text" id="name" formControlName = "name"> <br>
+
+            <label for="number"> Contact-number </label> -->
+            <!-- <input type="number" id="number" formControlName = "number"> <br> -->
+
+            <label for="password"> Pass-Word </label>
+            <input class="form-control" type="password" id="password" formControlName = "password" required> <br>
+               
+            <button type="submit"(click) = "onSignUp()"> Sign-Up </button>
+    </div>
+  </div>
+  </form>
+  </div>
+</div>
+  <!-- <router-outlet></router-outlet> -->
