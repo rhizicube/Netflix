@@ -6,7 +6,7 @@
 <div class="container-fluid" style="background-color: black; width: 100%;">
     <div class="row no-gutters" >
 
-        <div class="col-md-2" style="padding: 0;" *ngFor="let mv of mvis;  let j = index">
+        <div class="col-2" style="padding: 0;" *ngFor="let mv of mvis;  let j = index">
 
 
 
@@ -14,7 +14,7 @@
                 style="margin-left: 5px; margin-bottom: 5px; max-width: 200px;
                  border: 1.5px solid black;"> -->
             <div class="card bg-dark text-black"  (click) = "showDetail(mv)" style="max-width: 200px; height: 200px;padding: 0;">
-                <img class="card-img" [src]="mv.data.imgPath " alt="Card image" style="max-width: 200px; height: 200px;">
+                <img class="card-img" [src]="mv.data.imgPath " alt="Card image" style="max-width: 200px; height: 200px;" >
 
                 <div class="card-img-overlay"  >
 

@@ -5,25 +5,25 @@
       <div class="col-sm-5">
         <form [formGroup]="movie">
           <label for="name"> Movie-Title </label>
-          <input type="text" class="form-control" id="name" value="" formControlName="title" required>
+          <input type="text" class="form-control" id="name" value="" formControlName="title" required> <br>
   
           
   
           <label for="productId"> Unique-Id </label>
           <input type="number" class="form-control" id="productId" value="" formControlName="uniqueId" required
-            maxlength="">
+            maxlength=""> <br>
   
           
             <label for="catagory"> catagory </label>
             <input type="text" class="form-control" id="catagory" value="" formControlName="catagory" required>
-    
+             <br>
           
   
           <label for="description"> Description </label>
           <input type="text" class="form-control" id="description" value="" formControlName="description" required>
-  
+          <br>
           
-          <label for="img"> Image </label>
+          <label for="img"> Image Url </label>
           <input type="text" class="form-control" id="img" value="" formControlName="imgPath">
   
         </form>

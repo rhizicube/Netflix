@@ -43,7 +43,7 @@
         </div>
         <hr>
         <h2 style="color: lightgrey; font-weight: bold;">Thriller</h2>
-        <div class="col-md-2" style="padding: 0;" *ngFor="let mv of thriller">
+        <div class="col-2" style="padding: 0;" *ngFor="let mv of thriller">
             <div class="card bg-dark text-black"  (click) = "showDetail(mv)" style="max-width: 200px; height: 200px;padding: 0;">
                 <img class="card-img" [src]="mv.data.imgPath " alt="Card image" style="max-width: 200px; height: 200px;">
 

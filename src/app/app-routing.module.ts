@@ -11,7 +11,12 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {path: 'Add', component: AddMovieComponent, canActivate: [AuthGuard] },
   {path: 'User', component: AuthComponent },
-  {path: 'Netflix', component: HeaderComponent, canActivate: [AuthGuard] },
+  {
+    path: '',
+    redirectTo: 'Movies', 
+    pathMatch: 'full'
+},
+  {path: 'Netflix', component: MoviesComponent, canActivate: [AuthGuard] },
   {path: 'Movies', component: MoviesComponent, canActivate: [AuthGuard]},
   {path: 'MovieDetails', component: DetailsComponent , canActivate: [AuthGuard]},
   {path: 'Catagories', component: CatagoryComponent, canActivate: [AuthGuard]}
