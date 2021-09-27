@@ -7,19 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
- email : any;
- isLoggedIn = false;
+  email: any;
+  isLoggedIn = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-  const idToken = localStorage.getItem('Token');
-  if(idToken){
-    console.log("kuchb");
-    this.isLoggedIn = true;
-    this.email = localStorage.getItem('email');
+    const idToken = localStorage.getItem('Token');
+    if (idToken) {
+
+      this.isLoggedIn = true;
+      this.email = localStorage.getItem('email');
+    }
   }
-  }
-  onLogOut(){
+  onLogOut() {
     this.isLoggedIn = false;
     localStorage.clear();
     this.router.navigate(['/User']);

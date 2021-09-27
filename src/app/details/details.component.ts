@@ -10,11 +10,11 @@ export class DetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-     this.onMovie();
+    this.onMovie();
   }
   myMovie;
-onMovie(){
-   this.myMovie = JSON.parse(localStorage.getItem("moviedData"));
-   console.log("detail", this.myMovie.data.title);
-}
+  onMovie() {
+    this.myMovie = JSON.parse(localStorage.getItem("moviedData"));
+    console.log("detail", this.myMovie.data.title);
+  }
 }

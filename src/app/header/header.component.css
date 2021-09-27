@@ -3,3 +3,17 @@
 a:hover{
     background-color: darkgray;
 }
+
+  @media screen and (max-width: 500px) {
+  .navbar.navbar-expand-lg.navbar-dark.bg-dark{
+   width: 100%vw;
+   text-align: left;
+}
+  }
+  .collapse.navbar-collapse{
+     
+      display: block;
+      text-align: left;
+    
+  }
+ 

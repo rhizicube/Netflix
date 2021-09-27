@@ -1,26 +1,28 @@
-<div class="container-fluid" style="background-color: black; width: 100%; height: 100%;" >
-    <img [src] = "myMovie.data.imgPath" [alt] = "myMovie.data.title" 
-    style="width: 400px; height: 300px; padding-top: 5px;" class="center"> <br>
+<div class="container-fluid" style="background-color: black; width: 100%; height: 100%;">
+  <img [src]="myMovie.data.imgPath" [alt]="myMovie.data.title" style="width: 400px; height: 300px; padding-top: 5px;"
+    class="center"> <br>
 
-    <div class="centers">
-      <button class="btn btn-outline-secondary"style="margin-left: 450px; margin-right: auto;" > <span class="material-icons">
+  <div class="centers">
+    <button class="btn btn-outline-secondary" style="margin-left: 450px; margin-right: auto;"> <span
+        class="material-icons">
         thumb_down
-        </span></button>
-        <button class="btn btn-outline-primary" style="margin-left: 50px; margin-right: auto;" type="button">
-            <span class="material-icons" >
-                play_circle_filled
-                </span>
-        </button>
-        <button class="btn btn-outline-secondary"style="margin-left: 50px; margin-right: auto;" > <span class="material-icons">
-          thumb_up
-          </span></button>
-          
-      </div>
-      
-      <p style="color:darkslategrey; width: 300px; position:absolute; right: 0; margin-bottom: 10px;
-      margin-right: 10px;"> 
-        Description :- {{myMovie.data.description}} </p>
-         <h3 style="color:lightgray; font-size: 30px; font-weight: bold;"> {{myMovie.data.title}} </h3>
-        <p style="color:lightgray;"> {{myMovie.data.catagory}} </p>
-        
+      </span></button>
+    <button class="btn btn-outline-primary" style="margin-left: 50px; margin-right: auto;" type="button">
+      <span class="material-icons">
+        play_circle_filled
+      </span>
+    </button>
+    <button class="btn btn-outline-secondary" style="margin-left: 50px; margin-right: auto;"> <span
+        class="material-icons">
+        thumb_up
+      </span></button>
+
+  </div>
+
+  <p style="color:darkslategrey; width: 300px; float: right; margin-bottom: 10px;
+      margin-right: 10px;">
+    Description :- {{myMovie.data.description}} </p>
+  <h3 style="color:lightgray; font-size: 30px; font-weight: bold;"> {{myMovie.data.title}} </h3>
+  <p style="color:lightgray;"> {{myMovie.data.catagory}} </p>
+
 </div>

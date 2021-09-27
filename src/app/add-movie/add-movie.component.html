@@ -1,38 +1,38 @@
 <div class="container-fluid">
-    <h3 style="font-weight: bolder; color: darkred;  font-size: larger; padding-top: 10px;">Add Movie Details</h3>
-  
-    <div class="container-sm">
-      <div class="col-sm-5">
-        <form [formGroup]="movie">
-          <label for="name"> Movie-Title </label>
-          <input type="text" class="form-control" id="name" value="" formControlName="title" required> <br>
-  
-          
-  
-          <label for="productId"> Unique-Id </label>
-          <input type="number" class="form-control" id="productId" value="" formControlName="uniqueId" required
-            maxlength=""> <br>
-  
-          
-            <label for="catagory"> catagory </label>
-            <input type="text" class="form-control" id="catagory" value="" formControlName="catagory" required>
-             <br>
-          
-  
-          <label for="description"> Description </label>
-          <input type="text" class="form-control" id="description" value="" formControlName="description" required>
-          <br>
-          
-          <label for="img"> Image Url </label>
-          <input type="text" class="form-control" id="img" value="" formControlName="imgPath">
-  
-        </form>
-      </div>
-    </div>
-  
-    <hr>
-    <div class="button">
-      <button class="btn btn-outline-primary" (click)="saveData()" style="margin-top: 2px; margin-bottom: 2px;">Save
-       Data</button>
+  <h3 style="font-weight: bolder; color: darkred;  font-size: larger; padding-top: 10px;">Add Movie Details</h3>
+
+  <div class="container-sm">
+    <div class="col-sm-5">
+      <form [formGroup]="movie">
+        <label for="name"> Movie-Title </label>
+        <input type="text" class="form-control" id="name" value="" formControlName="title" required> <br>
+
+
+
+        <label for="productId"> Unique-Id </label>
+        <input type="number" class="form-control" id="productId" value="" formControlName="uniqueId" required
+          maxlength=""> <br>
+
+
+        <label for="catagory"> catagory </label>
+        <input type="text" class="form-control" id="catagory" value="" formControlName="catagory" required>
+        <br>
+
+
+        <label for="description"> Description </label>
+        <input type="text" class="form-control" id="description" value="" formControlName="description" required>
+        <br>
+
+        <label for="img"> Image Url </label>
+        <input type="text" class="form-control" id="img" value="" formControlName="imgPath">
+
+      </form>
     </div>
   </div>
+
+  <hr>
+  <div class="button">
+    <button class="btn btn-outline-primary" (click)="saveData()" style="margin-top: 2px; margin-bottom: 2px;">Save
+      Data</button>
+  </div>
+</div>

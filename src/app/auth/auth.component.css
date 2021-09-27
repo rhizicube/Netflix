@@ -1,14 +1,7 @@
 input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
-/* .row{
-    position:  absolute;
-            top : 100px;
-            left: 300px;
-            width: 500px;
-            height:300px;
-            border:1px solid black;
-} */
+
 .row{
     display: flex;
     align-items: center;
