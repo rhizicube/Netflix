@@ -23,6 +23,10 @@ export class CatagoryComponent implements OnInit {
   }
   getDataHere() {
     this.service.getMovies().subscribe((resp) => {
+      if (resp) {
+        this.hideloader();
+    }
+
       for (let data in resp) {
         this.all.push(resp[data]);
       }
@@ -47,6 +51,11 @@ export class CatagoryComponent implements OnInit {
       }
     });
   }
+  hideloader() {
+    document.getElementById('loading')
+                .style.display = 'none';
+    
+  }
   details;
   movieDetail = false;
   showDetail(j) {
@@ -56,3 +65,5 @@ export class CatagoryComponent implements OnInit {
     return;
   }
 }
+
+
