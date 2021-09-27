@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Movie } from './movie.model';
 import { Observable } from 'rxjs';
-import { RouteConfigLoadEnd } from '@angular/router';
+
 import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 

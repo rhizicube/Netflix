@@ -1,28 +1,16 @@
-<div class="container-fluid" style="background-color: black; width: 100%;">
-
-    <img src="https://cdn.pocket-lint.com/r/s/1200x/assets/images/140219-tv-news-feature-netflix-tips-and-tricks-how-to-master-your-binge-watching-experience-image4-rivlhfwq6o.jpg"
-        style="width: 100%; height: 400px;">
+<div class="container-fluid">
+  <img
+    src="https://cdn.pocket-lint.com/r/s/1200x/assets/images/140219-tv-news-feature-netflix-tips-and-tricks-how-to-master-your-binge-watching-experience-image4-rivlhfwq6o.jpg"
+  />
 </div>
-<div class="container-fluid" style="background-color: black; width: 100%;">
-    <div class="row no-gutters">
+<div class="container-fluid">
+  <div class="row no-gutters">
+    <div class="col-2" *ngFor="let mv of mvis; let j = index">
+      <div class="card bg-dark text-black" (click)="showDetail(mv)">
+        <img class="card-img" [src]="mv.data.imgPath" alt="Card image" />
 
-        <div class="col-2" style="padding: 0;" *ngFor="let mv of mvis;  let j = index">
-
-
-
-
-            <div class="card bg-dark text-black" (click)="showDetail(mv)"
-                style="max-width: 200px; height: 200px;padding: 0;">
-                <img class="card-img" [src]="mv.data.imgPath " alt="Card image"
-                    style="max-width: 200px; height: 200px;">
-
-                <div class="card-img-overlay">
-
-
-
-                </div>
-            </div>
-        </div>
+        <div class="card-img-overlay"></div>
+      </div>
     </div>
-
+  </div>
 </div>

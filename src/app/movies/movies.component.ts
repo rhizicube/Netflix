@@ -11,61 +11,56 @@ import { HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.css']
+  styleUrls: ['./movies.component.css'],
 })
 export class MoviesComponent implements OnInit {
-   datas : any;
-   mvis = [];
-  
-  constructor(private service : CommonService, private router : Router) { }
+  datas: any;
+  mvis = [];
+
+  constructor(private service: CommonService, private router: Router) {}
 
   headerObject = {
-    "Content-Type":"application/json",
-    
-  }  
-   headers = new HttpHeaders(this.headerObject);  
+    'Content-Type': 'application/json',
+  };
+  headers = new HttpHeaders(this.headerObject);
 
   ngOnInit(): void {
-   this.getData();
+    this.getData();
   }
-  getData(){
-     this.service.getMovies().subscribe((resp) =>{
-    
-  console.log(resp);
+  getData() {
+    this.service.getMovies().subscribe((resp) => {
+      console.log(resp);
       for (let data in resp) {
         this.mvis.push(resp[data]);
       }
-   
-      console.log("abccc", this.mvis);
-     
-   
-    return 
-     })
-    
-  }
-// onClick(){
-// this.route.navigate(['Catagories']);
-//     window.alert("jumped");
-// }
-details ;
-movieDetail = false;
 
-showDetail(j)
-{
-  this.movieDetail = true;
-  console.log(j);
-  var movie = JSON.stringify(j);
-  localStorage.setItem("moviedData", movie);
-  this.router.navigate(['/MovieDetails']);
-  return
-  // console.log("button is working", this.mvis);
-  for(let i in this.mvis){
-    // console.log("for",this.mvis[i].data.uniqueId);
-    if(this.mvis[i].data.uniqueId == this.mvis[j].data.uniqueId ){
-    //  this.details.push(this.mvis[i].data);
-    this.details = this.mvis[i].data;
-     console.log("one",this.details.uniqueId);
+      console.log('abccc', this.mvis);
+
+      return;
+    });
+  }
+  // onClick(){
+  // this.route.navigate(['Catagories']);
+  //     window.alert("jumped");
+  // }
+  details;
+  movieDetail = false;
+
+  showDetail(j) {
+    this.movieDetail = true;
+    console.log(j);
+    var movie = JSON.stringify(j);
+    localStorage.setItem('moviedData', movie);
+    this.router.navigate(['/MovieDetails']);
+    return;
+    // console.log("button is working", this.mvis);
+    for (let i in this.mvis) {
+      // console.log("for",this.mvis[i].data.uniqueId);
+      if (this.mvis[i].data.uniqueId == this.mvis[j].data.uniqueId) {
+        //  this.details.push(this.mvis[i].data);
+        this.details = this.mvis[i].data;
+        console.log('one', this.details.uniqueId);
+      }
     }
   }
-}
 }

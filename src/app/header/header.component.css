@@ -1,9 +1,18 @@
-
+.navbar-brand{
+  color: red; font-size: large; font-weight: bold; font-style: italic;
+}
 
 a:hover{
     background-color: darkgray;
 }
-
+.nav-link.active {
+  color: lightgrey !important;
+  font-size: medium; 
+  font-weight: bold;
+}
+.btn.btn-outline-success{
+  position: absolute; right: 0; 
+}
   @media screen and (max-width: 500px) {
   .navbar.navbar-expand-lg.navbar-dark.bg-dark{
    width: 100%vw;
