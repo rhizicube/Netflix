@@ -29,7 +29,9 @@ export class MoviesComponent implements OnInit {
   }
   getData() {
     this.service.getMovies().subscribe((resp) => {
-      console.log(resp);
+      if (resp) {
+        this.hideloader();
+    }
       for (let data in resp) {
         this.mvis.push(resp[data]);
       }
@@ -39,10 +41,7 @@ export class MoviesComponent implements OnInit {
       return;
     });
   }
-  // onClick(){
-  // this.route.navigate(['Catagories']);
-  //     window.alert("jumped");
-  // }
+  
   details;
   movieDetail = false;
 
@@ -53,14 +52,11 @@ export class MoviesComponent implements OnInit {
     localStorage.setItem('moviedData', movie);
     this.router.navigate(['/MovieDetails']);
     return;
-    // console.log("button is working", this.mvis);
-    for (let i in this.mvis) {
-      // console.log("for",this.mvis[i].data.uniqueId);
-      if (this.mvis[i].data.uniqueId == this.mvis[j].data.uniqueId) {
-        //  this.details.push(this.mvis[i].data);
-        this.details = this.mvis[i].data;
-        console.log('one', this.details.uniqueId);
-      }
-    }
+    
+  }
+  hideloader() {
+    document.getElementById('loading')
+                .style.display = 'none';
+    
   }
 }
