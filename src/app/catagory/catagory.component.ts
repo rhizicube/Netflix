@@ -20,7 +20,7 @@ export class CatagoryComponent implements OnInit {
     this.service.getMovies().subscribe((resp) => {
       if (resp) {
         this.hideloader();
-
+      // console.log();
         for (let data in resp) {
           this.moviesList.push(resp[data]);
         }
