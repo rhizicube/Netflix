@@ -8,14 +8,9 @@ import { CommonService } from '../common.service';
   styleUrls: ['./catagory.component.css'],
 })
 export class CatagoryComponent implements OnInit {
-  all = [];
+  moviesList = [];
+  uniCategory = [];
 
-  latest = [];
-  comedy = [];
-  love = [];
-  animated = [];
-  Action = [];
-  thriller = [];
   constructor(private service: CommonService, private router: Router) {}
 
   ngOnInit(): void {
@@ -25,36 +20,25 @@ export class CatagoryComponent implements OnInit {
     this.service.getMovies().subscribe((resp) => {
       if (resp) {
         this.hideloader();
-    }
 
-      for (let data in resp) {
-        this.all.push(resp[data]);
-      }
-
-      for (let i in this.all) {
-        if (this.all[i].data.catagory === 'Action') {
-          this.Action.push(this.all[i]);
-        }
-        if (this.all[i].data.catagory === 'Thriller') {
-          this.thriller.push(this.all[i]);
-        }
-        if (this.all[i].data.catagory === 'Love Story') {
-          this.love.push(this.all[i]);
-        }
-        if (this.all[i].data.catagory === 'Animation') {
-          this.animated.push(this.all[i]);
+        for (let data in resp) {
+          this.moviesList.push(resp[data]);
         }
 
-        if (this.all[i].data.catagory === 'Comedy') {
-          this.comedy.push(this.all[i]);
+        var distinct = [];
+        for (let i = 0; i < this.moviesList.length; i++) {
+          if (!distinct[this.moviesList[i].data.catagory]) {
+            distinct.push(this.moviesList[i].data.catagory);
+          }
         }
+        this.uniCategory = distinct.filter(function (elem, index, self) {
+          return index === self.indexOf(elem);
+        });
       }
     });
   }
   hideloader() {
-    document.getElementById('loading')
-                .style.display = 'none';
-    
+    document.getElementById('loading').style.display = 'none';
   }
   details;
   movieDetail = false;
@@ -64,6 +48,12 @@ export class CatagoryComponent implements OnInit {
     this.router.navigate(['/MovieDetails']);
     return;
   }
+
+  checkCategory(cat, movie) {
+    if (cat === movie.data.catagory) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
-
-

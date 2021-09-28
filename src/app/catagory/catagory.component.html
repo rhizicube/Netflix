@@ -1,48 +1,21 @@
 <div class="container-fluid">
-    
-        <span class="sr-only" id="loading"></span>
-     
-  <div class="row">
-    <h2>Action</h2>
+  <span class="sr-only" id="loading"></span>
 
-    <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
-      <div class="col-2" *ngFor="let mv of Action; let j = index">
-        <div class="card bg-dark text-black" (click)="showDetail(mv)">
-          <img class="card-img" [src]="mv.data.imgPath" alt="Card image" />
+  <div *ngFor="let cat of uniCategory">
+    <h2>{{ cat }}</h2>
 
-          <div class="card-img-overlay"></div>
-        </div>
+    <div class="row">
+      <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
+        <ng-container *ngFor="let mv of moviesList; let j = index">
+          <ng-container *ngIf="checkCategory(cat, mv)">
+            <div class="card bg-dark text-black" (click)="showDetail(mv)">
+              <img class="card-img" [src]="mv.data.imgPath" alt="Card image" />
+            </div>
+          </ng-container>
+        </ng-container>
       </div>
     </div>
   </div>
 
   <hr />
-  <h2>Comedy</h2>
-  <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
-    <div class="col-2" *ngFor="let mv of comedy">
-      <div class="card bg-dark text-black" (click)="showDetail(mv)">
-        <img class="card-img" [src]="mv.data.imgPath" alt="Card image" />
-
-        <div class="card-img-overlay"></div>
-      </div>
-    </div>
-  </div>
-  <hr />
-  <h2>Thriller</h2>
-  <div class="col-2" *ngFor="let mv of thriller">
-    <div class="card bg-dark text-black" (click)="showDetail(mv)">
-      <img class="card-img" [src]="mv.data.imgPath" alt="Card image" />
-
-      <div class="card-img-overlay"></div>
-    </div>
-  </div>
-  <hr />
-  <h2>Love</h2>
-  <div class="col-2" *ngFor="let mv of love">
-    <div class="card bg-dark text-black" (click)="showDetail(mv)">
-      <img class="card-img" [src]="mv.data.imgPath" alt="Card image" />
-
-      <div class="card-img-overlay"></div>
-    </div>
-  </div>
 </div>

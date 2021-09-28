@@ -14,6 +14,5 @@ export class DetailsComponent implements OnInit {
   myMovie;
   onMovie() {
     this.myMovie = JSON.parse(localStorage.getItem('moviedData'));
-    console.log('detail', this.myMovie.data.title);
   }
 }
