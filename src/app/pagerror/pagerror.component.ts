@@ -9,6 +9,8 @@ export class PagerrorComponent implements OnInit {
 
   constructor() { }
 
+
+  
   ngOnInit(): void {
   }
 
