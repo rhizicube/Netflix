@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  Movie } from '../movie.model'
 
 @Component({
   selector: 'app-details',
@@ -11,7 +12,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.onMovie();
   }
-  myMovie;
+ myMovie: any;
   onMovie() {
     this.myMovie = JSON.parse(localStorage.getItem('moviedData'));
   }

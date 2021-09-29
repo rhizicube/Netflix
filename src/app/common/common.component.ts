@@ -86,5 +86,12 @@ export class CommonComponent implements OnInit {
       return false;
     }
   }
- 
+
+  pageCheck() {
+    if (this.mvis.length == 0) {
+      setTimeout(() => {
+        return true;
+      }, 10000);
+    }
+  }
 }

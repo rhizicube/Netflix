@@ -1,13 +1,15 @@
 export class Movie {
     public title: string;
-    public info: string;
+    public uniqueId: number;
     public catogory: string;
+    public description: string;
     public imgPath: string;
 
-    constructor( title: string, info: string, catagory: string, imgPath: string, ){
-        this.title = title
-        this.info = info
-        this.catogory = catagory
+    constructor( title: string, uniqueId: number, catagory: string, description: string, imgPath: string, ){
+        this.title = title;
+        this.uniqueId = uniqueId;
+        this.catogory = catagory;
+        this.description = description;
         this.imgPath = imgPath;
         
     }
