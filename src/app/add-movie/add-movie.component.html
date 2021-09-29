@@ -13,6 +13,17 @@
           formControlName="title"
           required
         />
+        <div
+          *ngIf="
+            movie.controls['title'].invalid && movie.controls['title'].touched
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="movie.controls['title'].errors.required">
+            Title is required.
+          </div>
+        </div>
+
         <br />
 
         <label for="productId"> Unique-Id </label>
@@ -25,6 +36,17 @@
           required
           maxlength=""
         />
+        <div
+          *ngIf="
+            movie.controls['uniqueId'].invalid &&
+            movie.controls['uniqueId'].touched
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="movie.controls['uniqueId'].errors.required">
+            Unique-Id is required.
+          </div>
+        </div>
         <br />
 
         <label for="catagory"> catagory </label>
@@ -36,6 +58,17 @@
           formControlName="catagory"
           required
         />
+        <div
+          *ngIf="
+            movie.controls['catagory'].invalid &&
+            movie.controls['catagory'].touched
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="movie.controls['catagory'].errors.required">
+            catagory is required.
+          </div>
+        </div>
         <br />
 
         <label for="description"> Description </label>
@@ -47,6 +80,17 @@
           formControlName="description"
           required
         />
+        <div
+          *ngIf="
+            movie.controls['description'].invalid &&
+            movie.controls['description'].touched
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="movie.controls['description'].errors.required">
+            Description is required.
+          </div>
+        </div>
         <br />
 
         <label for="img"> Image Url </label>
@@ -57,13 +101,28 @@
           value=""
           formControlName="imgPath"
         />
+        <div
+          *ngIf="
+            movie.controls['imgPath'].invalid &&
+            movie.controls['imgPath'].touched
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="movie.controls['imgPath'].errors.required">
+            Image_Url is required.
+          </div>
+        </div>
       </form>
     </div>
   </div>
 
   <hr />
   <div class="button">
-    <button class="btn btn-outline-primary" (click)="saveData()">
+    <button
+      class="btn btn-outline-primary"
+      [disabled]="movie.invalid"
+      (click)="saveData()"
+    >
       Save Data
     </button>
   </div>

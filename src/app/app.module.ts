@@ -8,23 +8,26 @@ import { Observable } from 'rxjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { MoviesComponent } from './movies/movies.component';
-import { CatagoryComponent } from './catagory/catagory.component';
+
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthComponent } from './auth/auth.component';
 import { DetailsComponent } from './details/details.component';
+import { CommonComponent } from './common/common.component';
+import { RegisterComponent } from './register/register.component';
+import { PagerrorComponent } from './pagerror/pagerror.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MoviesComponent,
-    CatagoryComponent,
     AddMovieComponent,
     AuthComponent,
     DetailsComponent,
+    CommonComponent,
+    RegisterComponent,
+    PagerrorComponent,
    
   ],
   imports: [
@@ -34,8 +37,6 @@ import { DetailsComponent } from './details/details.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

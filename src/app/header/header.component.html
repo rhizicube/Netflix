@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a routerLink="/" class="navbar-brand"
+            <a routerLink="/Movies" class="navbar-brand"
                >NetFlix</a>
         </div>
         <div class="collapse navbar-collapse">
@@ -19,7 +19,7 @@
                     <a routerLink="/Catagories" class="nav-link active " href="#"
                         >Catagory </a>
                 </li>
-                <li *ngIf="isLoggedIn  != true" class="nav-item">
+                <li *ngIf="isLoggedIn!= true" class="nav-item">
                     <a routerLink="/User" class="nav-link active " href="#"
                         > Login </a>
                 </li>

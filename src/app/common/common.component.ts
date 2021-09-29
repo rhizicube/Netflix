@@ -1,22 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { CommonService } from '../common.service';
+import { Observable } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
-  selector: 'app-catagory',
-  templateUrl: './catagory.component.html',
-  styleUrls: ['./catagory.component.css'],
+  selector: 'app-common',
+  templateUrl: './common.component.html',
+  styleUrls: ['./common.component.css'],
 })
-export class CatagoryComponent implements OnInit {
+export class CommonComponent implements OnInit {
+  datas: any;
+  mvis = [];
+  displayPage: boolean;
   moviesList = [];
   uniCategory = [];
 
   constructor(private service: CommonService, private router: Router) {}
 
+  headerObject = {
+    'Content-Type': 'application/json',
+  };
+  headers = new HttpHeaders(this.headerObject);
+
   ngOnInit(): void {
-    this.getDataHere();
+    this.getData();
+    if (this.router.url.includes('Catagories')) {
+      this.getDataHere();
+    }
+  }
+  getData() {
+    this.displayPage = false;
+    this.service.getMovies().subscribe((resp) => {
+      if (resp) {
+        this.hideloader();
+      }
+      for (let data in resp) {
+        this.mvis.push(resp[data]);
+      }
+
+      return;
+    });
   }
   getDataHere() {
+    this.displayPage = true;
     this.service.getMovies().subscribe((resp) => {
       if (resp) {
         this.hideloader();
@@ -37,16 +64,19 @@ export class CatagoryComponent implements OnInit {
       }
     });
   }
-  hideloader() {
-    document.getElementById('loading').style.display = 'none';
-  }
-  details;
+
   movieDetail = false;
+
   showDetail(j) {
+    this.movieDetail = true;
+
     var movie = JSON.stringify(j);
     localStorage.setItem('moviedData', movie);
     this.router.navigate(['/MovieDetails']);
     return;
+  }
+  hideloader() {
+    document.getElementById('loading').style.display = 'none';
   }
 
   checkCategory(cat, movie) {

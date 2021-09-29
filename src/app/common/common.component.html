@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <img
+    *ngIf="!displayPage"
+    src="https://cdn.pocket-lint.com/r/s/1200x/assets/images/140219-tv-news-feature-netflix-tips-and-tricks-how-to-master-your-binge-watching-experience-image4-rivlhfwq6o.jpg"
+  />
+  <app-pagerror class="app" *ngIf="mvis.length == 0"></app-pagerror>
+  <span class="sr-only" id="loading"></span>
+</div>
+<div *ngIf="!displayPage" class="container-fluid">
+  <div class="row no-gutters">
+    
+    <div class="col-2" *ngFor="let mv of mvis; let j = index">
+      <div class="card bg-dark text-black" (click)="showDetail(mv)">
+        <img class="card-img" [src]="mv.data.imgPath" [alt]="mv.data.title" />
+
+        <div class="card-img-overlay"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="displayPage" class="container-fluid">
+  <div *ngFor="let cat of uniCategory">
+    <h2>{{ cat }}</h2>
+
+    <div class="row">
+      <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
+        <ng-container *ngFor="let mv of moviesList; let j = index">
+          <ng-container *ngIf="checkCategory(cat, mv)">
+            <div class="card bg-dark text-black" (click)="showDetail(mv)">
+              <img
+                class="card-img"
+                [src]="mv.data.imgPath"
+                [alt]="mv.data.title"
+              />
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+</div>
+<!-- <div *ngIf = displayPage class="container-fluid"> -->
+<!-- <span class="sr-only" id="loading"></span>
+  
+    <div *ngFor="let cat of uniCategory">
+      <h2>{{ cat }}</h2>
+  
+      <div class="row">
+        <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
+          <ng-container *ngFor="let mv of moviesList; let j = index">
+            <ng-container *ngIf="checkCategory(cat, mv)">
+              <div class="card bg-dark text-black" (click)="showDetail(mv)">
+                <img class="card-img" [src]="mv.data.imgPath" alt="Card image" />
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  
+    <hr /> -->
+<!-- </div> -->

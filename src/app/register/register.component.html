@@ -1,42 +1,39 @@
 <div class="container-fluid">
-  <h1>Netflix</h1>
-
-  <button class="btn btn-outline-primary" (click)="onReg()">Register</button>
-
-  <div class="row">
-    <div class="col-md-4">
-      <form [formGroup]="alreadyUser">
+<form [formGroup]="newUser">
+    <div class="row">
+      <div  class="col-md-4">
         <label for="email"> E-mail </label>
         <input
           class="form-control"
           type="email"
           id="email"
           [class.is-invalid]="
-            alreadyUser.get('email').invalid && alreadyUser.get('email').touched
+            newUser.get('email').invalid && newUser.get('email').touched
           "
           formControlName="email"
           required
         />
         <div
           *ngIf="
-            (alreadyUser.get('email').invalid &&
-              alreadyUser.get('email').touched) ||
-            alreadyUser.get('email').dirty
+            (newUser.get('email').invalid && newUser.get('email').touched) ||
+            newUser.get('email').dirty
           "
         >
           <small
             class="text-danger"
-            *ngIf="alreadyUser.get('email').errors?.required"
+            *ngIf="newUser.get('email').errors?.required"
             >Email address is required</small
           >
           <small
             class="text-danger"
-            *ngIf="alreadyUser.get('email').errors?.email"
+            *ngIf="newUser.get('email').errors?.email"
             >Email address is invalid</small
           >
         </div>
+
         <br />
-        <label for="password"> Password </label>
+
+        <label for="password"> Pass-Word </label>
         <input
           class="form-control"
           type="password"
@@ -44,11 +41,12 @@
           formControlName="password"
           required
         />
+        <br />
 
-        <button class="btn btn-outline-danger" (click)="onLogin()">
-          Login
+        <button class="btn btn-outline-info" (click)="onSignUp()">
+          Sign-Up
         </button>
-      </form>
+      </div>
     </div>
-  </div>
+  </form>
 </div>
