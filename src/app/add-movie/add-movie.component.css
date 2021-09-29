@@ -1,17 +1,23 @@
-.container-fluid{
-    text-align: center;background-color: black;
-    width: 100%; height: auto;
+.container-fluid {
+  text-align: center;
+  background-color: black;
+  width: 100%;
+  height: auto;
 }
-h3{
-    font-weight: bolder; color: darkred;  font-size: larger; padding-top: 10px;
+h3 {
+  font-weight: bolder;
+  color: darkred;
+  font-size: larger;
+  padding-top: 10px;
 }
-.container-sm{
-    display: flex;
-    align-items: center;
-    color: lightgray;
-    justify-content: center;
-    padding-top: 20px;
+.container-sm {
+  display: flex;
+  align-items: center;
+  color: lightgray;
+  justify-content: center;
+  padding-top: 20px;
 }
-.btn.btn-outline-primary{
-    margin-top: 2px; margin-bottom: 2px;
+.btn.btn-outline-primary {
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
