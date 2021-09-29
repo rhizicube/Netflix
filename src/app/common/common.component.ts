@@ -86,4 +86,5 @@ export class CommonComponent implements OnInit {
       return false;
     }
   }
+ 
 }

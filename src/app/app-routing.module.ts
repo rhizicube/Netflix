@@ -27,8 +27,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'Catagories', component: CommonComponent, canActivate: [AuthGuard] },
-  { path: '**', pathMatch: 'full', 
-        component: PagerrorComponent },
+  { path: '**', pathMatch: 'full', component: PagerrorComponent },
 ];
 
 @NgModule({
