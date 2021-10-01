@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommonService } from '../common.service';
-// import * as movielist from '../movielist/data.json';
-// let moviedata =  movielist;
 
 @Component({
   selector: 'app-add-movie',
@@ -24,12 +22,12 @@ export class AddMovieComponent implements OnInit {
   ngOnInit(): void {}
   saveData() {
     let data = this.movie.value;
-    console.log(data);
 
-    this.service.saveMovies(data).subscribe((resp: any) => {
-      console.log('posted', resp);
-    });
+    this.service.saveMovies(data).subscribe((resp: any) => {});
     window.alert('Details have been added');
     this.movie.reset();
+  }
+  logOut() {
+    this.service.onLogOut();
   }
 }

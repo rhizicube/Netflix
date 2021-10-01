@@ -108,7 +108,9 @@ export class CommonComponent implements OnInit {
       return false;
     }
   }
-
+  logOut(){
+    this.service.onLogOut();
+  }
   pageCheck() {
     if (this.mvis.length == 0) {
       setTimeout(() => {

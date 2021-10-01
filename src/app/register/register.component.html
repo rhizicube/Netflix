@@ -1,8 +1,7 @@
 <div class="container-fluid">
- 
-<form [formGroup]="newUser">
+  <form [formGroup]="newUser">
     <div class="row">
-      <div  class="col-md-4">
+      <div class="col-md-4">
         <label for="email"> E-mail </label>
         <input
           class="form-control"
@@ -25,9 +24,7 @@
             *ngIf="newUser.get('email').errors?.required"
             >Email address is required</small
           >
-          <small
-            class="text-danger"
-            *ngIf="newUser.get('email').errors?.email"
+          <small class="text-danger" *ngIf="newUser.get('email').errors?.email"
             >Email address is invalid</small
           >
         </div>
@@ -47,7 +44,8 @@
         <button class="btn btn-outline-info" (click)="onSignUp()">
           Sign-Up
         </button>
-        <button class="btn btn-outline-primary" (click)="onReg()">Login</button> &nbsp;
+        <button class="btn btn-outline-primary" (click)="onReg()">Login</button>
+        &nbsp;
       </div>
     </div>
   </form>

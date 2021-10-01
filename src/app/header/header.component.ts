@@ -23,12 +23,12 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['Movies']);
     }
   }
-  onLogOut() {
-    // this.isLoggedIn = false;
-    this.isLog = false;
-    localStorage.clear();
-    this.router.navigate(['/User']);
-  }
+  // onLogOut() {
+  //   // this.isLoggedIn = false;
+  //   this.isLog = false;
+  //   localStorage.clear();
+  //   this.router.navigate(['/User']);
+  // }
   // logg(){
   //   if(this.isLoggedIn){
   //     console.log("hii")

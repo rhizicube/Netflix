@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <h1>Netflix</h1>
-  <button class="btn btn-primary" *ngIf="isLoggedIn!= true">Login</button> 
-  <button class="btn btn-outline-primary" (click)="onReg()">Register</button> 
-  <!-- <button class="btn btn-outline-success" *ngIf="isLoggedIn"(click)="onLogOut()" >LogOut </button> -->
+
+  <button class="btn btn-outline-primary" (click)="onReg()">Register</button>
+
   <div *ngIf="!isLoggedIn" class="row">
     <div class="col-md-4">
       <form [formGroup]="alreadyUser">
@@ -48,9 +48,6 @@
         <button class="btn btn-outline-danger" (click)="onLogin()">
           Login
         </button>
-         
-          
-      
       </form>
     </div>
   </div>

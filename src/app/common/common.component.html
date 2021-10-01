@@ -1,5 +1,6 @@
-
 <div class="container-fluid">
+  <button class="btn btn-outline-success" (click)="logOut()">Log Out</button>
+
   <img
     *ngIf="!displayPage"
     src="https://cdn.pocket-lint.com/r/s/1200x/assets/images/140219-tv-news-feature-netflix-tips-and-tricks-how-to-master-your-binge-watching-experience-image4-rivlhfwq6o.jpg"
@@ -41,7 +42,7 @@
 
   <hr />
 </div>
-<div *ngIf= "mvis.length==0 && error" class="page">
+<div *ngIf="mvis.length == 0 && error" class="page">
   <h2>Error!!</h2>
   <p>No Data to show</p>
 </div>

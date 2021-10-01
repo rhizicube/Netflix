@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Movie } from './movie.model';
 import { Observable } from 'rxjs';
-
+import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
@@ -22,8 +22,8 @@ export interface AuthResponseData {
 export class CommonService {
 
   loggedIn: boolean = false;
-
-  constructor(private http: HttpClient) { }
+   
+  constructor(private http: HttpClient, private router: Router) { }
   headerObject = {
     "Content-Type": "application/json",
 
@@ -106,6 +106,12 @@ export class CommonService {
   public isLoggedIn() {
     return localStorage.getItem('Token') !== null;
 
+  }
+  onLogOut() {
+    // this.isLoggedIn = false;
+    this.loggedIn = false;
+    localStorage.clear();
+    this.router.navigate(['/User']);
   }
 }
 
