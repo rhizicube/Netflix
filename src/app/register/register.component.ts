@@ -35,7 +35,7 @@ onSignUp() {
     }
   );
   window.alert("Sign-Up Successful");
-  this.router.navigate(['User']);
+  this.router.navigate(['/User']);
   this.newUser.reset();
   
   // if (this.signed == true) {
@@ -45,6 +45,9 @@ onSignUp() {
   // }
 
   
+}
+onReg() {
+  this.router.navigate(['User']);
 }
 
 }

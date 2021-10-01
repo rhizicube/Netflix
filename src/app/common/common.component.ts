@@ -15,7 +15,9 @@ export class CommonComponent implements OnInit {
   displayPage: boolean;
   moviesList = [];
   uniCategory = [];
-
+  error: boolean;
+  data : boolean = false;
+  lodding: boolean= true;
   constructor(private service: CommonService, private router: Router) {}
 
   headerObject = {
@@ -32,14 +34,24 @@ export class CommonComponent implements OnInit {
   getData() {
     this.displayPage = false;
     this.service.getMovies().subscribe((resp) => {
+      console.log(resp);
       if (resp) {
+        this.lodding = false;
+        this.data = true;
         this.hideloader();
-      }
+      // } 
       for (let data in resp) {
         this.mvis.push(resp[data]);
       }
-
+    }else{
+      this.lodding = false;
+      this.error = true;
+    }
       return;
+    }, (message) => {
+      this.error = message;
+      window.alert(message);
+      this.hideloader();
     });
   }
   getDataHere() {
@@ -61,8 +73,18 @@ export class CommonComponent implements OnInit {
         this.uniCategory = distinct.filter(function (elem, index, self) {
           return index === self.indexOf(elem);
         });
+      }else{
+        this.moviesList=[];
+        this.hideloader();
       }
+      
+
+    }, (err) => {
+      console.log(err);
+      this.hideloader();
+      
     });
+    
   }
 
   movieDetail = false;
@@ -91,7 +113,9 @@ export class CommonComponent implements OnInit {
     if (this.mvis.length == 0) {
       setTimeout(() => {
         return true;
-      }, 10000);
+      }, 2000);
+    }else{
+      return false
     }
   }
 }

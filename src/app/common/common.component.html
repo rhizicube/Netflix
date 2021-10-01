@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
   <img
     *ngIf="!displayPage"
@@ -40,6 +41,7 @@
 
   <hr />
 </div>
-<div *ngIf="pageCheck()" class="page">
+<div *ngIf= "mvis.length==0 && error" class="page">
+  <h2>Error!!</h2>
   <p>No Data to show</p>
 </div>

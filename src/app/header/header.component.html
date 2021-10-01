@@ -19,14 +19,14 @@
                     <a routerLink="/Catagories" class="nav-link active " href="#"
                         >Catagory </a>
                 </li>
-                <li *ngIf="isLoggedIn!= true" class="nav-item">
+                <!-- <li *ngIf="isLoggedIn!= true" class="nav-item">
                     <a routerLink="/User" class="nav-link active " href="#"
                         > Login </a>
-                </li>
-
-                <li *ngIf="isLoggedIn == true" class="nav-item">
+                </li> -->
+               <!-- <app-auth></app-auth> -->
+                <li *ngIf="isLog" class="nav-item">
                     <button class="btn btn-outline-success" (click)="onLogOut()" >
-                        LogOut </button>
+                        Log Out </button>
                 </li>
             </ul>
 
