@@ -1,0 +1,54 @@
+<div class="container-fluid">
+ 
+<form [formGroup]="newUser">
+    <div class="row">
+      <div  class="col-md-4">
+        <label for="email"> E-mail </label>
+        <input
+          class="form-control"
+          type="email"
+          id="email"
+          [class.is-invalid]="
+            newUser.get('email').invalid && newUser.get('email').touched
+          "
+          formControlName="email"
+          required
+        />
+        <div
+          *ngIf="
+            (newUser.get('email').invalid && newUser.get('email').touched) ||
+            newUser.get('email').dirty
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="newUser.get('email').errors?.required"
+            >Email address is required</small
+          >
+          <small
+            class="text-danger"
+            *ngIf="newUser.get('email').errors?.email"
+            >Email address is invalid</small
+          >
+        </div>
+
+        <br />
+
+        <label for="password"> Pass-Word </label>
+        <input
+          class="form-control"
+          type="password"
+          id="password"
+          formControlName="password"
+          required
+        />
+        <br />
+
+        <button class="btn btn-outline-info" (click)="onSignUp()">
+          Sign-Up
+        </button>
+        <button class="btn btn-outline-primary" (click)="onReg()">Login</button> &nbsp;
+      </div>
+    </div>
+  </form>
+</div>

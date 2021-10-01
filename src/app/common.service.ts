@@ -21,6 +21,8 @@ export interface AuthResponseData {
 })
 export class CommonService {
 
+  loggedIn: boolean = false;
+
   constructor(private http: HttpClient) { }
   headerObject = {
     "Content-Type": "application/json",
@@ -36,7 +38,7 @@ export class CommonService {
   getMovies(): Observable<any> {
 
     return this.http.get('https://fir-f38f4-default-rtdb.firebaseio.com/.json?print=pretty'
-    )
+    ).pipe(catchError(this.handleBackErr))
 
 
   }
@@ -62,6 +64,24 @@ export class CommonService {
     ).pipe(catchError(this.handleError))
 
   }
+  private handleBackErr(errorRes : HttpErrorResponse){
+    let message = 'No Data To Show'
+    if(!errorRes.error || !errorRes.error.error){
+      console.log("new Error", message)
+      return throwError(message);
+      
+    }
+    switch (errorRes.error.error.message) {
+      case 'An unknown error':
+        message = 'hii';
+        console.log("hii", message);
+        break;
+      
+       
+    }
+    return throwError(message);
+    
+  }
 
   private handleError(errorRes: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred!';
@@ -78,6 +98,7 @@ export class CommonService {
       case 'INVALID_PASSWORD':
         errorMessage = 'This password is not correct.';
         break;
+       
     }
     return throwError(errorMessage);
   }

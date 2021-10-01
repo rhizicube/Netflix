@@ -12,24 +12,27 @@ export class AuthComponent implements OnInit {
   regForm = false;
   userList = [];
   error: string = null;
-  loggedIn = false;
+  // loggedIn = true;
   signed = false;
   isLoggedIn = false;
-  email;
+  email: string;
   constructor(private service: CommonService, private router: Router) {}
-
+  isLog = this.service.loggedIn;
   ngOnInit(): void {
     const idToken = localStorage.getItem('Token');
     if (idToken) {
-      this.isLoggedIn = true;
+      
+      // this.isLoggedIn = true;
+      this.isLog= true;
+
       this.email = localStorage.getItem('email');
-      this.router.navigate(['/Movies']);
+      this.router.navigate(['Movies']);
     }
   }
   onReg() {
-    this.regForm = true;
+    this.router.navigate(['Register']);
   }
-  newUser = new FormGroup({
+  alreadyUser = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
@@ -37,36 +40,21 @@ export class AuthComponent implements OnInit {
     ]),
   });
 
-  onSignUp() {
-    var regs = this.newUser.value;
-    this.service.signUp(regs.email, regs.password).subscribe(
-      (resdata: any) => {
-        this.signed == true;
-      },
-      (errorMessage) => {
-        this.error = errorMessage;
-        window.alert(errorMessage);
-      }
-    );
-    this.newUser.reset();
-    if (this.signed == true) {
-      window.alert('Registerd Successfully! Please Login');
-    }
-
-    this.regForm == false;
-  }
   onLogin() {
-    var regs = this.newUser.value;
+    var regs = this.alreadyUser.value;
 
     this.service.login(regs.email, regs.password).subscribe(
       (resdata: any) => {
-        this.loggedIn = true;
+        console.log("log in");
+        
+        // this.isLoggedIn = true;
+        this.isLog = true;
         let email = JSON.stringify(resdata.email);
         localStorage.setItem('email', email);
 
         let token = JSON.stringify(resdata.idToken);
         localStorage.setItem('Token', token);
-        this.router.navigate(['Movies']);
+        this.router.navigate(['Head']);
       },
       (errorMessage) => {
         this.error = errorMessage;
@@ -74,6 +62,13 @@ export class AuthComponent implements OnInit {
       }
     );
 
-    this.newUser.reset();
+    this.alreadyUser.reset();
+  }
+  onLogOut() {
+    console.log("logout");
+    //  this.isLoggedIn = false;
+    this.isLog = false;
+    localStorage.clear();
+    this.router.navigate(['/User']);
   }
 }

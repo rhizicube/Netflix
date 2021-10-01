@@ -1,34 +1,37 @@
 <div class="container-fluid">
   <h1>Netflix</h1>
-
-  <button class="btn btn-outline-primary" (click)="onReg()">Register</button>
-
-  <div class="row">
-    <div *ngIf="!regForm" class="col-md-4">
-      <form [formGroup]="newUser">
+  <button class="btn btn-primary" *ngIf="isLoggedIn!= true">Login</button> 
+  <button class="btn btn-outline-primary" (click)="onReg()">Register</button> 
+  <!-- <button class="btn btn-outline-success" *ngIf="isLoggedIn"(click)="onLogOut()" >LogOut </button> -->
+  <div *ngIf="!isLoggedIn" class="row">
+    <div class="col-md-4">
+      <form [formGroup]="alreadyUser">
         <label for="email"> E-mail </label>
         <input
           class="form-control"
           type="email"
           id="email"
           [class.is-invalid]="
-            newUser.get('email').invalid && newUser.get('email').touched
+            alreadyUser.get('email').invalid && alreadyUser.get('email').touched
           "
           formControlName="email"
           required
         />
         <div
           *ngIf="
-            (newUser.get('email').invalid && newUser.get('email').touched) ||
-            newUser.get('email').dirty
+            (alreadyUser.get('email').invalid &&
+              alreadyUser.get('email').touched) ||
+            alreadyUser.get('email').dirty
           "
         >
           <small
             class="text-danger"
-            *ngIf="newUser.get('email').errors?.required"
+            *ngIf="alreadyUser.get('email').errors?.required"
             >Email address is required</small
           >
-          <small class="text-danger" *ngIf="newUser.get('email').errors?.email"
+          <small
+            class="text-danger"
+            *ngIf="alreadyUser.get('email').errors?.email"
             >Email address is invalid</small
           >
         </div>
@@ -45,57 +48,10 @@
         <button class="btn btn-outline-danger" (click)="onLogin()">
           Login
         </button>
+         
+          
+      
       </form>
     </div>
-    <form [formGroup]="newUser">
-      <div class="row">
-        <div *ngIf="regForm" class="col-md-4">
-          <label for="email"> E-mail </label>
-          <input
-            class="form-control"
-            type="email"
-            id="email"
-            [class.is-invalid]="
-              newUser.get('email').invalid && newUser.get('email').touched
-            "
-            formControlName="email"
-            required
-          />
-          <div
-            *ngIf="
-              (newUser.get('email').invalid && newUser.get('email').touched) ||
-              newUser.get('email').dirty
-            "
-          >
-            <small
-              class="text-danger"
-              *ngIf="newUser.get('email').errors?.required"
-              >Email address is required</small
-            >
-            <small
-              class="text-danger"
-              *ngIf="newUser.get('email').errors?.email"
-              >Email address is invalid</small
-            >
-          </div>
-
-          <br />
-
-          <label for="password"> Pass-Word </label>
-          <input
-            class="form-control"
-            type="password"
-            id="password"
-            formControlName="password"
-            required
-          />
-          <br />
-
-          <button class="btn btn-outline-primary" (click)="onSignUp()">
-            Sign-Up
-          </button>
-        </div>
-      </div>
-    </form>
   </div>
 </div>

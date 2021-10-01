@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonService } from '../common.service';
+
 
 @Component({
   selector: 'app-header',
@@ -8,20 +10,29 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   email: any;
-  isLoggedIn = false;
-  constructor(private router: Router) { }
 
+  constructor(private router: Router, private service: CommonService) { }
+  isLog = this.service.loggedIn;
   ngOnInit(): void {
     const idToken = localStorage.getItem('Token');
     if (idToken) {
-
-      this.isLoggedIn = true;
+      debugger;
+      // this.isLoggedIn = true;
+      this.isLog = true;
       this.email = localStorage.getItem('email');
+      this.router.navigate(['Movies']);
     }
   }
   onLogOut() {
-    this.isLoggedIn = false;
+    // this.isLoggedIn = false;
+    this.isLog = false;
     localStorage.clear();
     this.router.navigate(['/User']);
   }
+  // logg(){
+  //   if(this.isLoggedIn){
+  //     console.log("hii")
+  //     return true
+  //   }
+  // }
 }
